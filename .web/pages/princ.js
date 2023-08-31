@@ -36,11 +36,13 @@ export default function Component() {
   return (
   <Fragment><Fragment>
   <Container>
+  <Container>
   <HStack>
-  <Text sx={{"display": "flex", "justify-content": "center", "align-items": "center", "height": "10vh", "fontSize": "2em", "textAlign": "center"}}>
+  <Text sx={{"colorScheme": "twitter"}}>
   {((state.principaltitulo + " ") + state.nombre)}
 </Text>
 </HStack>
+</Container>
 </Container>
   <NextHead>
   <title>
