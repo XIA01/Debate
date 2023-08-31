@@ -38,7 +38,7 @@ export default function Component() {
   <Fragment><Fragment>
   <Container>
   <VStack>
-  <Text onClick={_e => Event([E("state.pasaryear", {})], _e)} sx={{"display": "flex", "justify-content": "center", "align-items": "center", "height": "10vh", "fontSize": "2em", "textAlign": "center"}}>
+  <Text sx={{"display": "flex", "justify-content": "center", "align-items": "center", "height": "10vh", "fontSize": "2em", "textAlign": "center"}}>
   {`${state.bienvenido} ${state.year} Señor: ${state.nombre}`}
 </Text>
   <Box>

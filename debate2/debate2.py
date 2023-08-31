@@ -1,23 +1,12 @@
 """Bienvenido a Reflex! Este archivo describe los pasos para crear una aplicación básica."""
-from anyio import Event
+
 from rxconfig import config
 import reflex as rx
+from debate2.state import *
+from debate2.princ import *
 
-class State(rx.State):
-    """El estado de la aplicación."""
-    year: int = 2023
-    bienvenido: str = "Bienvenidos a State "
-    principaltitulo: str = "Página principal"
-    input_titulo: str = "Bienvenidos a Juego Debate. Ingrese su nombre y haga click en comenzar."
-    nombre: str = ""
-    msj_footer: str = "Juego para practicar Python y Reflex"
-    
-    def pasaryear(self):
-        self.year += 1
-    
-    def cambiarnombre(self, nombre: str):
-        self.nombre = nombre
-    
+
+
 
 style = {
     "display": "flex",
@@ -30,15 +19,15 @@ style = {
 
 def principal() -> rx.Container:
     return rx.container(
-        rx.hstack(
-            rx.text(State.principaltitulo+" "+State.nombre, style=style),
+        titulo(),
+        seleccionar(),
         )
-    )
+    
 
 def index() -> rx.Component:
     return rx.container(
         rx.vstack(
-            rx.text(f"{State.bienvenido} {State.year} Señor: {State.nombre}", style=style, on_click=State.pasaryear),  # Usar f-string para interpolar las variables
+            rx.text(f"{State.bienvenido} {State.year} Señor: {State.nombre}", style=style),  # Usar f-string para interpolar las variables
             rx.box(
                 rx.text(State.input_titulo),
                 rx.input(
@@ -51,6 +40,7 @@ def index() -> rx.Component:
             )
         )
     )
+    
 # Crear una instancia de la aplicación y agregar las páginas a la app.
 app = rx.App()
 app.add_page(index)

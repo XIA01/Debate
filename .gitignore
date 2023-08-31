@@ -1,7 +1,5 @@
-*.db
-
-*.py[cod]
-.debate
-.web
-
+*.db
+*.py[cod]
+.debate
+.web
 __pycache__/
