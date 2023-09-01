@@ -3,8 +3,7 @@ import { useRouter } from "next/router"
 import { E, getAllLocalStorageItems, getRefValue, getRefValues, isTrue, preventDefault, refs, uploadFiles, useEventLoop } from "/utils/state"
 import { EventLoopContext, StateContext } from "/utils/context.js"
 import "focus-visible/dist/focus-visible"
-import { Box, Button, Container, HStack, Link, Text, useColorMode, VStack } from "@chakra-ui/react"
-import NextLink from "next/link"
+import { Box, Button, Container, HStack, Text, useColorMode, VStack } from "@chakra-ui/react"
 import NextHead from "next/head"
 
 
@@ -38,30 +37,26 @@ export default function Component() {
   <Fragment><Fragment>
   <Container>
   <Container>
-  <HStack>
-  <Text sx={{"colorScheme": "twitter"}}>
-  {((state.principaltitulo + " ") + state.nombre)}
-</Text>
-</HStack>
-</Container>
-  <Container>
-  <HStack>
-  <Box sx={{"width": "50%", "height": "100%", "background-color": "lightgray"}}/>
   <VStack>
-  <Link as={NextLink} href={`/game`}>
-  <Button onClick={_e => Event([E("state.selecion", {candidato:"Milei"})], _e)} sx={{"margin": "10px", "padding": "10px", "background-color": "blue", "color": "white", "border": "none", "cursor": "pointer", "border-radius": "5px"}}>
-  {`Milei`}
+  <Text>
+  {state.pregunta_actual}
+</Text>
+  <HStack>
+  <Button colorScheme={`twitter`} onClick={_e => Event([E("state.respondio", {respuesta:"Bien"})], _e)}>
+  {`Bien`}
 </Button>
-</Link>
-  <Button onClick={_e => Event([E("state.selecion", {candidato:"Masa"})], _e)} sx={{"margin": "10px", "padding": "10px", "background-color": "blue", "color": "white", "border": "none", "cursor": "pointer", "border-radius": "5px"}}>
-  {`Masa`}
+  <Button colorScheme={`twitter`} onClick={_e => Event([E("state.respondio", {respuesta:"Mal"})], _e)}>
+  {`Mal`}
 </Button>
-  <Button onClick={_e => Event([E("state.selecion", {candidato:"Bullrich"})], _e)} sx={{"margin": "10px", "padding": "10px", "background-color": "blue", "color": "white", "border": "none", "cursor": "pointer", "border-radius": "5px"}}>
-  {`Bullrich`}
+  <Button colorScheme={`twitter`} onClick={_e => Event([E("state.respondio", {respuesta:"Nulo"})], _e)}>
+  {`Nulo`}
 </Button>
-</VStack>
 </HStack>
+</VStack>
 </Container>
+  <Text>
+  {`Puntuacion: ${state.puntuacion}`}
+</Text>
 </Container>
   <NextHead>
   <title>

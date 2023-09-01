@@ -22,7 +22,13 @@ def principal() -> rx.Container:
         titulo(),
         seleccionar(),
         )
-    
+
+def juego() -> rx.Container:
+    return rx.container(
+        game(),
+        rx.text(f"Puntuacion: {State.puntuacion}")
+    )
+
 
 def index() -> rx.Component:
     return rx.container(
@@ -45,4 +51,5 @@ def index() -> rx.Component:
 app = rx.App()
 app.add_page(index)
 app.add_page(principal, route= '/princ')
+app.add_page(juego, route='/game')
 app.compile()

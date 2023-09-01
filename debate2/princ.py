@@ -36,10 +36,28 @@ def seleccionar() -> rx.Container:
         rx.hstack(
             rx.box(style=foto_style),  # Espacio para la foto
             rx.vstack(
-                boton_milei,
+                rx.link(boton_milei, href='/game'),
                 boton_masa,
                 boton_bullrich
             )
         )
     )
 
+    
+    
+
+def game():
+    boton_bien = rx.button("Bien", color_scheme="twitter", on_click=State.respondio("Bien"))
+    boton_mal = rx.button("Mal", color_scheme="twitter", on_click=State.respondio("Mal"))
+    boton_nulo = rx.button("Nulo", color_scheme="twitter", on_click=State.respondio("Nulo"))
+    return rx.container(
+        rx.vstack(
+            rx.text(State.pregunta_actual),
+            rx.hstack(
+                boton_bien,
+                boton_mal,
+                boton_nulo
+            )
+            
+        )
+    )
